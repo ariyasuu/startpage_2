@@ -1,0 +1,14 @@
+body {
+  overflow: hidden;
+  background-color: #040206;
+}
+.cirno_center {
+  background-color: #040206;
+  height: 100%;
+}
+
+.cirno_center img {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+}

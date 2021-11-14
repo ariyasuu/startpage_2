@@ -1,0 +1,454 @@
+/* Fonte que usei pro escrito de boas vindas, fonte gratuita do google fonts.*/
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+/* Fonte utilizada pro corpo inteiro do site */
+/* Já que a fonte está localizada na pasta CSS junto do arquivo não preciso localizar ela. se ela estivesse em outra pasta usaria ../ ou ./ pra encontrar*/
+/* Se qualquer dia ficar confuso na hora de localizar pastas pensa como se fosse um terminal do linux e vc usa 'cd..' pra voltar! */
+/* por essa fonte ser ttf você só consegue visualizar no Firefox, existem métodos de converter pra OTF e WOFF online mas como eu uso Firefox não me importei o suficiente pra fazer.*/
+@font-face {
+  font-family: 'haxrcorp';
+  src: url('haxrcorpttf.ttf');
+}
+/* Essa tag '*' diz que o efeito deve ser aplicado a tudo que está visivel. */
+* {
+  color: white !important; /* color of all text */
+  text-shadow: rgba(0,0,0,0.5) 1px 1px;
+  text-rendering: optimizeLegibility;
+}
+
+input {
+  font-family: haxrcorp, monospace;
+  font-size: 15px;
+}
+/* transform: scale(); no body não é uma boa ideia, é como dar zoom pelo navegador só que um pouco mais quebrado */
+body {
+  font-family: haxrcorp, monospace;
+  font-size: 15px;
+  background-color: #242424;
+  background-image: linear-gradient(45deg, rgba(19, 14, 43, 1) 50%, rgba(255, 183, 197, 1) 100%);
+  transform: scale(150%);
+  overflow: hidden;
+}
+/* Estilo utilizado para ter a imagem de fundo com efeitos, desta forma consigo utilizar backdrop-filter no corpo principal e adicionar ainda mais blur ao fundo. */
+.over {
+  background-repeat: no-repeat;
+  background-image: url("../img/bgjap.jpg");
+  background-size: cover;
+  opacity: 50%;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+  filter: blur(4px);
+  animation: float2 15s ease-in-out infinite;
+}
+/* Animação pelo CSS é relativamente simples, você precisa determinar a porcentagem da animação e aplicar as transformações que deseja, podendo ser: translate, scale, rotate, etc... */
+@keyframes float2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  25% {
+    transform: translate(2px, 5px);
+  }
+
+  50% {
+    transform: translate(5px, 2px);
+  }
+
+  75% {
+    transform: translate(3px, 5px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.maincontainer {
+  width: 672px;
+  height: 319px;
+  /*position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;*/
+  margin: auto;
+  background-color: transparent;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%, -50%);
+  backdrop-filter: blur(20px);
+  box-shadow: rgba(0,0,0,0.5) 0px 0px 50px 10px;
+  /* no box-shadow os parametros são X, Y, Desfoque da sombra, Expansão da sombra (posso ter confundido o X e o Y pq eu sou burro) */
+}
+
+.main {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: -2px;
+  width: 536px;
+  height: 300px;
+  left: -2px;
+  right: 190px;
+  margin: auto;
+  text-align: center;
+  border-top-left-radius: 5px;
+  color: white;
+  background-image: linear-gradient(45deg, rgba(255, 187, 183, 0.3), rgba(255, 183, 209, 0.1));
+  /* linear-gradient(angulo que vc quer seu gradiente, cor1, cor2, cor3, cor4, etc...); */
+}
+
+.maincontents {
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  float: left;
+  margin-right: 2px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button:hover {
+  background-color: #aaaaaa !important;
+}
+
+.searchbar {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(255, 255, 255, 0.5);
+  width: auto;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  border-bottom-left-radius: 5px;
+  color: white;
+  background-image: linear-gradient(45deg, rgba(255, 187, 183, 0.3), rgba(255, 183, 209, 0.1));
+}
+
+.searchinput {
+  line-height: 13px;
+  height: 12px;
+  top: -1px;
+  position: relative;
+  margin-left: 1px;
+  margin-right: 1px;
+  width: 100%;
+  border: none;
+  font-family: haxrcorp, monospace;
+  font-size: 15px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  color: white;
+}
+
+.searchinput:focus {
+  outline: none;
+  border: none;
+}
+
+.marqueebar {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(255, 255, 255, 0.5);
+  width: 300px;
+  height: 12px;
+  line-height: 12px;
+  float: right;
+  margin-left: 2px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  /* overflow: hidden impede que você possa mover a página, só overflow:hidden impede você de mexer pros dois angulos.
+  Pode determinar apenas para um angulo com overflow-y e overflow-x */
+}
+
+.marquee2 {
+  overflow: hidden;
+  width: 296px;
+  height: 100%;
+  margin: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  top: 1px;
+  line-height: 12px;
+  position: absolute;
+  text-align: center;
+}
+
+.bottomcontainer {
+  width: 540px;
+  height: 12px;
+  position: absolute;
+  left: -2px;
+  top: 305px;
+}
+
+.sidebar {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(255, 255, 255, 0.6);
+  top: -2px;
+  bottom: 200px;
+  width: 129px;
+  height: 319px;
+  left: 541px;
+  background-color: transparent;
+  background-position: left center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: absolute;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.girl {
+  width: auto;
+  height: 103%;
+  margin-top: 0px;
+  animation: float 6s ease-in-out infinite;
+  overflow: hidden;
+  margin-left: -170px;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translate(-2px, -5px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.sidebar_bottom {
+  border: 2px solid inset transparent;
+  position: absolute;
+  top: -2px;
+  bottom: 200px;
+  width: 132px;
+  height: 319px;
+  left: 541px;
+  background-image: url('../img/bg_side.gif');
+  /* pode mudar a imagem de fundo da barra lateral ou remover se não quiser fundo*/
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  filter: grayscale(50%);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  opacity: 65%;
+
+}
+
+.time {
+  color: #FFFFFF;
+  font-family: haxrcorp, monospace;
+  font-size: 16px;
+  position: relative;
+  top: -18px;
+  width: auto;
+  height: auto;
+  left: 2px;
+  /* float: right;
+  position: relative;*/
+}
+
+/*
+.time2 {
+  color: #FFFFFF;
+  font-family: haxrcorp, monospace;
+  position: absolute;
+  top: -28px;
+  width: auto;
+  height: auto;
+  left: 2px;
+}
+.time2 h1 {
+  font-size: 16px !important;
+  font-weight: 100;
+}
+      <div class="time2">
+        <h1>usr/home/ariyasu/time.sh -></h1>
+      </div>
+
+*/
+
+/* O código que está comentado serve pra mover o relógio para a direita e adicionar algum escrito na esquerda, ambos ficam nos extremos do corpo.
+Achei interessante deixar esse código aqui pra mostrar que você consegue deixar duas divs diferentes na mesma linha sem precisar usar 'z-index: ;' */
+
+.welcome {
+  line-height: 18px;
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 26px;
+  position: absolute;
+  top: 80px;
+  width: 300px;
+  left: 0px;
+  right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Pseudo-elemento, é aplicado depois(::after) ou antes (::before) do conteúdo da div.
+muito útil em situações como essa que quis fazer esse efeito de terminal ou quando não tem acesso ao HTML, por exemplo. */
+/* Muitos temas de chat para stream usam só pseudo-elemento por não ter acesso direto ao HTML */
+
+.welcome::after {
+  content: "_";
+  animation: pulse 0.8s step-start infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 10%;
+  }
+
+  50% {
+    opacity: 80%;
+  }
+
+  100% {
+    opacity: 10%;
+  }
+}
+
+.time::after {
+  content: "_";
+  animation: pulse 0.8s step-start infinite;
+}
+
+.bookmarkscontainer {
+  width: auto;
+  top: 140px;
+  position: relative;
+  display: inline-block;
+}
+
+.marquee-text {
+  position: absolute;
+  top: 1px;
+  padding-left: 2px;
+  padding-right: 4px;
+}
+
+ul {
+  width: 75px;
+  list-style-type: none;
+  float: left;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 18px;
+  margin-right: 18px;
+
+}
+
+li {
+  text-align: left;
+  padding-left: 3px;
+  padding-right: 3px;
+  height: 16px;
+  line-height: 16px;
+  width: 90px;
+}
+
+li::after {
+  content: " ";
+}
+/* essa atrocidade de :hover::after é um pseudo-elemento que só vai existir quando eu colocar o mouse em cima da div, no caso adiciona uma setinha depois do nome do link*/
+/* posso usar ícones do FontAwesome se eu colocar na font-family:; e colocar o código no lugar do content:""; */
+li:hover::after {
+  content: "   >";
+  font-size: 18px;
+
+}
+
+a {
+  text-decoration: none;
+  font-size: 24px;
+  height: 12px;
+  line-height: 12px;
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.clink {
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 16px;
+  color: white;
+}
+
+.clink:hover {
+  text-decoration: none;
+}
+
+/* Existe também a possibilidade de usar variaveis de cor no CSS, vou fazer um exemplo aqui em baixo:
+
+<css>
+
+:root {
+  --bg-color: #242424;
+  --main-color: #181B28;
+  --accent-color: #FFB7C5;
+  --link: rgba(255,255,255,0.45);
+  --link-hover: rgba(255,255,255,0.75);
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.link {
+  font-size: 18px;
+  font-family: haxrcorp, sans-serif;
+  color: var(--link);
+}
+
+.link:hover {
+  color: var(--link-hover);
+}
+
+li {
+  color: var(--accent-color);
+}
+
+.main {
+  background-color: var(--main-color);
+}
+<fim css>
+
+<html>
+<div class="main">
+  <ul>
+    <li>
+      <a class="link" href="example.com/"> Esse é um exemplo </a>
+    </li>
+  </ul>
+
+<fim html>
+
+
+/* Acho que isso é tudo o que você precisa saber pra poder dominar CSS e HTML, esse site é bem básico, as linguagens mais cruas possíveis. Quando você usa Bootstrap, por exemplo,
+muda um pouco mas a essência ainda é a mesma. Espero de verdade que seja útil pra você, acredito que talvez seja mais útil do que os outros dois sites que mandei pra você.
+Boa sorte!! */

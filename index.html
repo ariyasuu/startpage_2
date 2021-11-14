@@ -1,0 +1,77 @@
+<!-- DOCTYPE HTML -->
+<html>
+  <head>
+    <!-- Nessa parte, quando é site pra cliente você tem que colocar todo o conteúdo do SEO: Nome, descrição, favicon, imagem que vai aparecer quando compartilhar e tudo mais.
+  é importante fazer isso pra página ser mostrada no Google quando pesquisar. -->
+    <meta charset="UTF-8" />
+    <title>~> welcome_</title>
+    <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Overlay (imagem de fundo tá aqui pra poder ter filtro) -->
+    <div class="over"></div>
+    <!-- Base superior -->
+    <div class="maincontainer">
+      <!-- Base inferior -->
+      <div class="bottomcontainer">
+        <!-- Barra de pesquisa -->
+        <div class="searchbar">
+          <form name="form1" action="http://google.com/search" target="_blank" method="get">
+            <input type="text" autocomplete="off" placeholder="search..." name="q" class="searchinput"></input>
+          </form>
+        </div>
+      </div>
+      <!-- Relógio (div vazia que tem o conteúdo alterado pelo script no final do documento)-->
+      <div class="time" id="time">
+      </div>
+      <!-- Corpo principal -->
+      <div class="main">
+        <!-- Barra lateral -->
+        <div class="sidebar">
+          <video autoplay loop muted playsinline src="img/blink_2.webm" class="girl"></video>
+          <!-- você provavelmente sabe mas webm é utilizado como alternativa pra gif por ser mais leve e com maior qualidade. o conteúdo da div pode facilmente ser
+          substituido pelo código a seguir -->
+          <!-- <img src="path/to/image.jpg" class="girl"> -->
+        </div>
+        <!-- Fundo da barra lateral, mesmo conceito do overlay, serve apenas para colocar imagem no fundo, o mesmo resultado poderia ser atingido com 'background-image:;'
+      mas seria um pouco menos versátil. -->
+        <div class="sidebar_bottom"></div>
+        <!-- Escrito de boas vindas -->
+        <div class="welcome">こんにちは</div>
+        <!-- Links -->
+        <div class="bookmarkscontainer">
+          <!-- primeira lista -->
+          <ul>
+            <li><a href="https://facebook.com" class="clink" target="_blank">facebook</a>
+            <li><a href="https://gmail.com" class="clink" target="_blank">gmail</a>
+            <li><a href="https://reddit.com" class="clink" target="_blank">reddit</a>
+            <li><a href="https://youtube.com" class="clink" target="_blank">youtube</a>
+            <li><a href="https://web.whatsapp.com/" class="clink" target="_blank">whatsapp</a>
+          </ul>
+          <!-- segunda lista -->
+          <ul>
+            <li><a href="https://www.gmail.com/" class="clink" target="_blank">mail</a>
+            <li><a href="https://drive.google.com" class="clink" target="_blank">drive<a>
+          </ul>
+          <!-- terceira lista -->
+          <ul>
+            <li><a href="https://4chan.org/wg/" class="clink" target="_blank">/wg/</a>
+            <li><a href="https://4chan.org/g/" class="clink" target="_blank">/g/</a>
+            <li><a href="https://www.reddit.com/r/firefoxcss" class="clink" target="_blank">r/firefoxcss</a>
+            <li><a href="https://www.github.com/" class="clink" target="_blank">github</a>
+          </ul>
+          <!-- quarta lista -->
+          <ul>
+            <li><a href="https://amazon.com" class="clink" target="_blank">amazon</a>
+            <li><a href="https://www.mercadolivre.com.br" class="clink" target="_blank">mercadolivre</a>
+            <li><a href="https://shopee.com.br" class="clink" target="_blank">shopee</a>
+            <li><a href="https://aliexpress.com.br" class="clink" target="_blank">aliexpress</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Atenção! Scripts que serão utilizados dentro da body (para alteração de conteúdo e afins) devem estar dentro da tag <body> para fazer efeito.-->
+    <script type="text/javascript" src="scripts/clock.js"></script>
+  </body>
+</html>
